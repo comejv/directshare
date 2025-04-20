@@ -4,6 +4,9 @@ A peer-to-peer file sharing application designed to work over direct Ethernet an
 
 ## Features
 
+> [!WARNING]
+> This project is still in very early development and has no current release. Features listed here are the end goal.
+
 - **Direct Ethernet Connection**: Automatically configures IP addresses when computers are connected via Ethernet cable
 - **WiFi Hotspot Creation**: Negotiates which device creates a hotspot and which connects to it
 - **Fast Transfers**: Optimized for maximum transfer speed without internet or server bottlenecks
