@@ -68,8 +68,10 @@
             pkg-config
 
             # Development tools
-            # clang-tools # For clangd, clang-format, etc. (commented out)
-            gdb # For debugging
+            gdb
+            clang-tools
+            cmake-language-server
+            cmake-format
 
             # Minimal libraries
             libnl

@@ -4,8 +4,7 @@ set(LIB_SOURCES
     # network_discovery.c
     # connection_manager.c
     # file_transfer.c
-    lib_test.c
-)
+    lib_test.c)
 
 # Create library
 add_library(directshare_lib STATIC ${LIB_SOURCES})
