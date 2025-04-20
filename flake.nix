@@ -81,9 +81,8 @@
 
           shellHook = ''
             echo "Welcome to the DirectShare development environment!"
-            echo "Build with GCC: cmake -B build && cmake --build build
-            echo ""
-            echo "Note: NetworkManager operations require elevated privileges."
+            echo "Build with Nix : nix build"
+            echo "Or with GCC: cmake -B build && cmake --build build"
           '';
         };
       }
