@@ -17,7 +17,7 @@ A peer-to-peer file sharing application designed to work over direct Ethernet an
 - NetworkManager (for WiFi hotspot creation)
 - Administrator privileges (for network interface configuration)
 
-### Build Dependencies (#dependencies)
+### Build Dependencies
 - C compiler (GCC or Clang)
 - CMake
 - pkg-config
@@ -40,7 +40,7 @@ The built executable will be available at `./result/bin/directshare`.
 ### Building Manually
 
 > [!NOTE]
-> Building manuall requires you to have all [dependencies](#dependencies) installed, either manually or through `nix develop`.
+> Building manuall requires you to have all [dependencies](#build-dependencies) installed, either manually or through `nix develop`.
 
 ```bash
 # Create dir and configure
