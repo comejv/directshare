@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 project(DirectShare)
 
 # Options
-option(BUILD_TESTING "Build the testing tree" OFF)
+option(BUILD_TESTING "Build the testing tree" ON)
 
 if(NOT CMAKE_BUILD_TYPE)
     set(default_build_type "Debug")

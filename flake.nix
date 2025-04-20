@@ -37,7 +37,7 @@
             ];
 
             configurePhase = ''
-              cmake -B build
+              cmake -B build -DBUILD_TESTING=OFF
             '';
 
             buildPhase = ''

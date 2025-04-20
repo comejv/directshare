@@ -86,16 +86,17 @@ nix develop
 ```
 
 ### Unit testing
-To build tests you can use the `test` preset with cmake :
+
+Tests are built by default in the build directory (expect with `nix build`. To deactivate them run `cmake -B build -DBUILD_TESTING=OFF`.
 ```bash
 # Configure
-cmake --preset test -B build-test
+cmake -B build
 
 # Build
-cmake --build build-test
+cmake --build build
 
 # Test
-ctest --test-dir build-test
+ctest --test-dir build
 ```
 
 ## License
