@@ -16,6 +16,16 @@
       system:
       let
         pkgs = import nixpkgs { inherit system; };
+
+        libmnlStatic = pkgs.libmnl.overrideAttrs (oldAttrs: {
+          configureFlags = (oldAttrs.configureFlags or [ ]) ++ [
+            "--enable-static"
+            "--disable-shared"
+          ];
+          dontDisableStatic = true;
+        });
+
+        ncursesStatic = pkgs.ncurses.override { enableStatic = true; };
       in
       {
         packages = {
@@ -32,12 +42,18 @@
             ];
 
             buildInputs = with pkgs; [
-              libnl
-              ncurses
+              libmnlStatic
+              ncursesStatic
+              glibc.static
             ];
 
+            LDFLAGS = "-static -pthread";
+
             configurePhase = ''
-              cmake -B build -DBUILD_TESTING=OFF
+              cmake -B build \
+                -DBUILD_TESTING=OFF \
+                -DCMAKE_FIND_LIBRARY_SUFFIXES=".a" \
+                -DCMAKE_EXE_LINKER_FLAGS="-static -pthread"
             '';
 
             buildPhase = ''
@@ -73,15 +89,19 @@
             cmake-language-server
             cmake-format
 
-            # Minimal libraries
-            libnl
-            ncurses
+            # Libraries
+            libmnlStatic
+            ncursesStatic
+            glibc.static
 
             # Ruby for CMock scripts
             ruby
           ];
 
           shellHook = ''
+            export LIBRARY_PATH="${ncursesStatic}/lib:${libmnlStatic}/lib:$LIBRARY_PATH";
+            export LDFLAGS="-static -pthread"
+            export CFLAGS="-I${libmnlStatic}/include"
             echo "Welcome to the DirectShare development environment!"
             echo "Build with Nix : nix build"
             echo "Or with GCC: cmake -B build && cmake --build build"

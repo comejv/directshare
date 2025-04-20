@@ -8,5 +8,4 @@ add_executable(directshare ${SOURCES})
 set_target_properties(directshare PROPERTIES EXPORT_COMPILE_COMMANDS ON)
 
 # Link libraries
-target_link_libraries(directshare directshare_lib ${LIBNL_LIBRARIES}
-                      ${CURSES_LIBRARIES})
+target_link_libraries(directshare directshare_lib ${CURSES_LIBRARIES})
