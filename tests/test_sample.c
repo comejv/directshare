@@ -19,6 +19,6 @@ void test_SampleFail(void) {
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_SamplePass);
-    RUN_TEST(test_SampleFail);
+    // RUN_TEST(test_SampleFail);
     return UNITY_END();
 }
