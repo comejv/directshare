@@ -1,10 +1,13 @@
 name: DirectShare Tests
 
 on:
-  push:
-    branches: [ "main" ]
+  # push:
+  #   branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  release:
+    types: [published]
+  workflow_dispatch:
 
 jobs:
   build:
