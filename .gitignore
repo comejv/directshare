@@ -1,0 +1,47 @@
+# Build
+bin/
+build/
+build-test/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+CTestTestfile.cmake
+Testing/
+install_manifest.txt
+compile_commands.json
+_deps/
+CMakeUserPresets.json
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+.direnv/
+.cache/
+.clangd/
+
+# Nix-specific
+result
+result-*
+.direnv/
+
+# Generated test files and mocks
+*_Runner.c
+Mock*.c
+Mock*.h
+
+# Editors
+*~
+\#*\#
+.\#*

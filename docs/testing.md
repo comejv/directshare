@@ -1,8 +1,10 @@
-### 1. Install Multipass
+# Testing the app on a single machine
+
+## 1. Install Canonical Multipass
 - Download and install from https://multipass.run/
 - Choose Hyper-V as the hypervisor (default on Windows)
 
-### 2. Create Two VMs
+## 2. Create Two VMs
 ```bash
 # Create first VM
 multipass launch --name directshare-1 --memory 2G --cpus 2 --disk 10G
@@ -11,7 +13,7 @@ multipass launch --name directshare-1 --memory 2G --cpus 2 --disk 10G
 multipass launch --name directshare-2 --memory 2G --cpus 2 --disk 10G
 ```
 
-### 3. Configure Network Bridging
+## 3. Configure Network Bridging
 ```bash
 # List available networks
 multipass networks
@@ -30,7 +32,7 @@ multipass set local.directshare-2.bridged=true
 multipass start directshare-1 directshare-2
 ```
 
-### 4. Verify Connectivity
+## 4. Verify Connectivity
 ```bash
 # View assigned IP addresses
 multipass list

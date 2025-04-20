@@ -6,8 +6,14 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         pkgs = import nixpkgs { inherit system; };
       in
@@ -40,7 +46,7 @@
 
             installPhase = ''
               mkdir -p $out/bin
-              install -m755 build/directshare $out/bin/directshare
+              cp build/src/directshare $out/bin/
             '';
 
             meta = with pkgs.lib; {
@@ -60,19 +66,22 @@
             gcc
             cmake
             pkg-config
-            
+
             # Development tools
             # clang-tools # For clangd, clang-format, etc. (commented out)
-            gdb         # For debugging
-            
+            gdb # For debugging
+
             # Minimal libraries
             libnl
             ncurses
+
+            # Ruby for CMock scripts
+            ruby
           ];
 
           shellHook = ''
             echo "Welcome to the DirectShare development environment!"
-            echo "Build with GCC: mkdir -p build && cd build && cmake .. && make"
+            echo "Build with GCC: cmake -B build && cmake --build build
             echo ""
             echo "Note: NetworkManager operations require elevated privileges."
           '';

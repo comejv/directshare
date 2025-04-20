@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "default",
+      "displayName": "Default Build",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build"
+    },
+    {
+      "name": "test",
+      "displayName": "Test Build",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build-test",
+      "cacheVariables": {
+        "BUILD_TESTING": "ON"
+      }
+    }
+  ]
+}

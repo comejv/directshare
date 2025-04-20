@@ -21,50 +21,32 @@ A peer-to-peer file sharing application designed to work over direct Ethernet an
 - C compiler (GCC or Clang)
 - CMake
 - libnl (Network Link library)
-- libpcap
 - ncurses
-- OpenSSL
-- libsodium
-- D-Bus
-- NetworkManager development libraries
-- zlib
 
-## Building with Nix
+## Building
+
+### Building with nix
 
 This project includes a Nix flake for reproducible builds and development environments.
-
-### Development Environment
-
-To enter a development shell with all dependencies:
-
-```bash
-nix develop
-```
-
-### Building
 
 To build the project with Nix:
 
 ```bash
 nix build
 ```
-
 The built executable will be available at `./result/bin/directshare`.
 
-## Building Manually
+### Building Manually
 
 ```bash
-# Create build directory
-mkdir -p build && cd build
-
-# Configure
-cmake ..
+# Create dir and configure
+cmake -B build
 
 # Build
-make
+cmake --build build # bin in build/src/directshare
 
-# Install (optional)
-sudo make install
+# Install [Optional]
+cmake --install build # bin in ./bin/directshare
 ```
 
 ## Usage
@@ -89,11 +71,33 @@ DirectShare uses a combination of techniques to establish direct connections:
    - WiFi connection where one device creates a hotspot and the other connects to it
 4. **File Transfer**: Uses an optimized protocol for maximum throughput with integrity verification
 
+## Development
+
+### Development Environment
+
+To enter a development shell with all dependencies:
+
+```bash
+nix develop
+```
+
+### Unit testing
+To build tests you can use the `test` preset with cmake :
+```bash
+# Configure
+cmake --preset test -B build-test
+
+# Build
+cmake --build build-test
+
+# Test
+ctest --test-dir build-test
+```
+
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the GPL3 License - see the LICENSE file for details.
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.## Setting Up Multipass VMs for DirectShare Testing
-
+Contributions are welcome! Please feel free to submit a Pull Request.
