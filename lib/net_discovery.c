@@ -136,11 +136,11 @@ int discover_interfaces(interface_info_t **interfaces, int *count)
     }
 
     // Allocate temporary space for interfaces
-    interface_info_t temp_interfaces[128];   // Adjust size as needed
+    interface_info_t temp_interfaces[10];
     struct netlink_data net_data = {
         .interfaces = temp_interfaces,
         .count = 0,
-        .max_count = 128};
+        .max_count = 10};
 
     // Receive and parse the response
     ret = mnl_socket_recvfrom(nl, buf, sizeof(buf));

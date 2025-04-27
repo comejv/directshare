@@ -30,6 +30,7 @@ CMakeUserPresets.json
 .direnv/
 .cache/
 .clangd/
+Session.vim
 
 # Nix-specific
 result

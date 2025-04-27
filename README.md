@@ -21,10 +21,14 @@ A peer-to-peer file sharing application designed to work over direct Ethernet an
 - Administrator privileges (for network interface configuration)
 
 ### Build Dependencies
+
+> [!NOTE]
+> By default cmake and nix build will look for static versions of the libraries.
+
 - C compiler (GCC or Clang)
 - CMake
 - pkg-config
-- libnl (Network Link library)
+- libmnl (Minimal Network Link library)
 - ncurses
 
 ## Building

@@ -1,0 +1,21 @@
+# This configuration is based on LLVM style but with modifications to force
+# long macro calls (or initializer lists) to break into multiple lines.
+BasedOnStyle: LLVM
+Language: Cpp
+
+# Set a lower column limit so that long lines are broken.
+ColumnLimit: 80
+
+# Disable combining of parameters/arguments onto a single line.
+BinPackArguments: false
+BinPackParameters: false
+
+# Prefer to break before the binary operators if they exist.
+BreakBeforeBinaryOperators: NonAssignment
+
+# Prevent short blocks (or inline initializers) from being formatted onto a single line.
+AllowShortBlocksOnASingleLine: false
+
+# Optionally, tweak other settings if necessary:
+IndentWidth: 2
+ContinuationIndentWidth: 2

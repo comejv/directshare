@@ -93,9 +93,6 @@
             libmnlStatic
             ncursesStatic
             glibc.static
-
-            # Ruby for CMock scripts
-            ruby
           ];
 
           shellHook = ''
